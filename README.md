@@ -1,4 +1,4 @@
-[![CircleCI](https://circleci.com/gh/t04st3r/django-kafka.svg?style=shield)](https://app.circleci.com/pipelines/github/t04st3r/django-kafka) [![python](https://img.shields.io/badge/Python-3.11-3776AB.svg?style=flat&logo=python&logoColor=white)](https://www.python.org)
+[![CircleCI](https://circleci.com/gh/t04st3r/django-default.svg?style=shield)](https://app.circleci.com/pipelines/github/t04st3r/django-default) [![python](https://img.shields.io/badge/Python-3.11-3776AB.svg?style=flat&logo=python&logoColor=white)](https://www.python.org)
 
 
 # Django-Default
@@ -91,7 +91,7 @@ You can run django tests by simply run
 ```bash
 pytest
 ```
-To simulate the [testing pipeline](https://app.circleci.com/pipelines/github/t04st3r/django-kafka) in CircleCI just run
+To simulate the [testing pipeline](https://app.circleci.com/pipelines/github/t04st3r/django-default) in CircleCI just run
 ```bash
 docker compose run django test
 ```
