@@ -1,4 +1,6 @@
-import datetime, random, requests
+import datetime
+import random
+import requests
 
 from django.core.management.base import BaseCommand, CommandError
 from django.conf import settings
@@ -7,7 +9,10 @@ from public_holiday.models import PublicHoliday
 
 
 class Command(BaseCommand):
-    help = "Populate PublicHoliday models from Public Holiday API (see https://date.nager.at/Api) given a random country"
+    help = (
+        "Populate PublicHoliday models from Public Holiday API"
+        + "(see https://date.nager.at/Api) given a random country"
+    )
     api_consumed = False
 
     def handle(self, *args, **options):
@@ -22,7 +27,8 @@ class Command(BaseCommand):
             try:
                 response = requests.get(url)
                 response.raise_for_status()
-                # CloudFlare sometimes respond with a no content, we will keep requesting data
+                # CloudFlare sometimes respond with a no content,
+                # we will keep requesting data
                 if response.status_code == 200:
                     data = response.json()
                     self.api_consumed = True

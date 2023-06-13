@@ -1,7 +1,6 @@
 import pytest
 
 from django.utils import timezone
-from django.forms.models import model_to_dict
 from rest_framework import status
 from rest_framework.test import APIClient
 from .factories import PublicHolidayFactory
