@@ -87,11 +87,23 @@ make populate-models
 For each command run a random country is selected and all the public holidays for that country would be fetched and stored in the db
 
 ## Testing
+Testing requirements can be installed by
+```bash
+pipenv install --dev
+```
+To run the ruff linter on your codebase hit
+```bash
+make lint
+```
+pre-commit (that in turn will run ruff check) can be installed as well with
+```bash
+pre-commit install
+``` 
 You can run django tests by simply run
 ```bash
 pytest
 ```
 To simulate the [testing pipeline](https://app.circleci.com/pipelines/github/t04st3r/django-default) in CircleCI just run
 ```bash
-docker compose run django test
+docker compose run django ci
 ```
