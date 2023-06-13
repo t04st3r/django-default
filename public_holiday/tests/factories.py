@@ -6,9 +6,11 @@ import requests
 
 from django_countries import countries
 
+
 def _get_random_country():
     (country_code, _) = random.choice(list(countries))
     return country_code
+
 
 # This create anonymous objects with properties passed as arguments
 def Object(**kwargs):
@@ -33,6 +35,7 @@ class MockResponse:
         if self.status_code >= 400:
             raise requests.HTTPError(self.error)
 
+
 class PublicHolidayFactory(factory.django.DjangoModelFactory):
     country = factory.LazyFunction(_get_random_country)
     name = factory.Faker("name")
@@ -41,4 +44,3 @@ class PublicHolidayFactory(factory.django.DjangoModelFactory):
 
     class Meta:
         model = "public_holiday.PublicHoliday"
-

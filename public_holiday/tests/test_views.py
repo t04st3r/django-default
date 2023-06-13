@@ -5,13 +5,13 @@ from rest_framework import status
 from rest_framework.test import APIClient
 from .factories import PublicHolidayFactory
 
+
 @pytest.mark.django_db
 class TestPublicHolidayAPI:
-
     def test_public_holiday_list_success(self):
         batch = PublicHolidayFactory.create_batch(10)
         client = APIClient()
-        response = client.get('/public_holiday/')
+        response = client.get("/public_holiday/")
         assert response.status_code == status.HTTP_200_OK
         batch_ids = [model.id for model in batch]
         response_dict = response.json()
@@ -22,12 +22,10 @@ class TestPublicHolidayAPI:
     def test_public_holiday_detail_success(self):
         today = timezone.now().date()
         model = PublicHolidayFactory(
-            name="Holy Moly",
-            local_name="Santo Cielo!",
-            date=today
+            name="Holy Moly", local_name="Santo Cielo!", date=today
         )
         client = APIClient()
-        response = client.get(f'/public_holiday/{model.id}/')
+        response = client.get(f"/public_holiday/{model.id}/")
         assert response.status_code == status.HTTP_200_OK
         response_dict = response.json()
         assert response_dict["id"] == model.id
@@ -35,5 +33,3 @@ class TestPublicHolidayAPI:
         assert response_dict["name"] == model.name
         assert response_dict["local_name"] == model.local_name
         assert response_dict["country"] == str(model.country)
-
-     

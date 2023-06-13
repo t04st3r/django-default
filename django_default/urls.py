@@ -20,9 +20,9 @@ from rest_framework import routers
 from public_holiday.views import PublicHolidayList
 
 router = routers.DefaultRouter()
-router.register(r'public_holiday', PublicHolidayList)
+router.register(r"public_holiday", PublicHolidayList)
 
 urlpatterns = [
-    path('', include(router.urls)),
-    path('admin/', admin.site.urls),
+    path("", include(router.urls)),
+    path("admin/", admin.site.urls),
 ]
