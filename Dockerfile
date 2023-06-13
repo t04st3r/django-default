@@ -9,8 +9,6 @@ WORKDIR /app/
 
 COPY . .    
 
-RUN make dump-requirements
-RUN make install
-RUN make install-dev
+RUN make install-ci
 
 ENTRYPOINT [ "make" ]
