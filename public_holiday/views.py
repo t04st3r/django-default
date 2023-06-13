@@ -6,5 +6,5 @@ class PublicHolidayList(viewsets.ReadOnlyModelViewSet):
     """
     A simple List ViewSet.
     """
-    queryset = PublicHoliday.objects.all()
+    queryset = PublicHoliday.objects.all().order_by('id')
     serializer_class = PublicholidaySerializer
